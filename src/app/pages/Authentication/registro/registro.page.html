@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content>
+  <div id="container">
   <form>
     <ion-item lines="full">
       <ion-label position="floating">Nome Completo:</ion-label>
@@ -32,7 +33,10 @@
     <ion-row>
       <ion-col>
         <ion-button type="submit" color="primary" expand="block">Inscrever</ion-button>
+
+        <ion-button [routerLink]="['/login']" type="submit" color="primary" expand="block">ENTRAR</ion-button>
       </ion-col>
     </ion-row>
   </form>
+  </div>
 </ion-content>
