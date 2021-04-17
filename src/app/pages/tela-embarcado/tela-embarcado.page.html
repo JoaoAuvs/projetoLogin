@@ -59,12 +59,21 @@
     </ion-select>
   </ion-item>
 
-  <br>
-
-  <center><section>
-    <ion-button color="success">Cadastrar</ion-button>
-    <ion-button color="warning">Alterar</ion-button>
-    <ion-button color="danger">Remover</ion-button>
-  </section></center>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="primary" class="">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="success" routerLink="/contacts/create" routerDirection="forward" data-desc="ADICIONAR">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="warning" routerLink="/reminder/create" routerDirection="forward" data-desc="ALTERAR">
+        <ion-icon name="sync"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="danger" routerLink="/reminder/create" routerDirection="forward" data-desc="REMOVER">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 
 </ion-content>
