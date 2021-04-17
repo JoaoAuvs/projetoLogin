@@ -8,25 +8,50 @@
 </ion-header>
 
 <ion-content>
+
   <ion-item lines="full">
     <ion-label position="floating">Descrição:</ion-label>
     <ion-input type="text" required></ion-input>
   </ion-item>
 
-  <ion-content>
-    <ion-item lines="full">
+  
+  <ion-item lines="full">
       <ion-label position="floating">Firmware:</ion-label>
       <ion-input type="text" required></ion-input>
   </ion-item>
   
-  <ion-content>
-    <ion-item lines="full">
-      <ion-label position="floating">Status:</ion-label>
-      <ion-input type="text" required></ion-input>
+  
+  <ion-item lines="full">
+    <ion-label position="floating">Status:</ion-label>
+    <ion-input type="text" required></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>Modo de Comunicação:</ion-label>
+    <ion-select interface="popover">
+      <ion-select-option value="estacao">Estação</ion-select-option>
+      <ion-select-option value="cliente">Cliente </ion-select-option>
+      <ion-select-option value="roteador">Roteador</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Ip:</ion-label>
+    <ion-input type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Ip do Gateway:</ion-label>
+    <ion-input type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Porta:</ion-label>
+    <ion-input type="text" required></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label>Modo de Comunicação:</ion-label>
+    <ion-label>Lista de Topicos do servidor MQTT:</ion-label>
     <ion-select interface="popover">
       <ion-select-option value="estacao">Estação</ion-select-option>
       <ion-select-option value="cliente">Cliente </ion-select-option>

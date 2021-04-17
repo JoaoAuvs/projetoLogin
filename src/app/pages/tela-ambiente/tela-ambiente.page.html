@@ -9,14 +9,26 @@
 
 <ion-content>
 
-  <ion-item lines="full">
-    <ion-label position="floating">Unidade: </ion-label>
-    <ion-input type="int" required></ion-input>
+  <ion-item>
+    <ion-label>Unidade:</ion-label>
+    <ion-select interface="popover">
+      <ion-select-option value="administrativo">1</ion-select-option>
+      <ion-select-option value="anfiteatro">2</ion-select-option>
+      <ion-select-option value="auditorio">3</ion-select-option>
+      <ion-select-option value="comportamental">4</ion-select-option>
+      <ion-select-option value="laboratorio">5</ion-select-option>
+    </ion-select>
   </ion-item>
 
-  <ion-item lines="full">
-    <ion-label position="floating">Bloco: </ion-label>
-    <ion-input type="text" required></ion-input>
+  <ion-item>
+    <ion-label>Bloco:</ion-label>
+    <ion-select interface="popover">
+      <ion-select-option value="a">A</ion-select-option>
+      <ion-select-option value="b">B</ion-select-option>
+      <ion-select-option value="c">C</ion-select-option>
+      <ion-select-option value="d">D</ion-select-option>
+      <ion-select-option value="e">E</ion-select-option>
+    </ion-select>
   </ion-item>
 
   <ion-item>
@@ -42,6 +54,11 @@
 
   <ion-item lines="full">
     <ion-label position="floating">Quantidade de Computador:</ion-label>
+    <ion-input type="int" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">IP Camêra:</ion-label>
     <ion-input type="int" required></ion-input>
   </ion-item>
   
