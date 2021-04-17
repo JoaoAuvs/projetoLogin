@@ -9,4 +9,48 @@
 
 <ion-content>
 
+  <ion-item lines="full">
+    <ion-label position="floating">Unidade: </ion-label>
+    <ion-input type="int" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Bloco: </ion-label>
+    <ion-input type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Tipo de Ambiente:</ion-label>
+    <ion-select interface="popover">
+      <ion-select-option value="administrativo">Administrativo</ion-select-option>
+      <ion-select-option value="anfiteatro">Anfiteatro</ion-select-option>
+      <ion-select-option value="auditorio">Auditório</ion-select-option>
+      <ion-select-option value="comportamental">Comportamental</ion-select-option>
+      <ion-select-option value="laboratorio">Laboratório</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Nome:</ion-label>
+    <ion-input type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Capacidade:</ion-label>
+    <ion-input type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Quantidade de Computador:</ion-label>
+    <ion-input type="int" required></ion-input>
+  </ion-item>
+  
+  <br>
+
+  <center><section>
+    <ion-button color="success">Cadastrar</ion-button>
+    <ion-button color="warning">Alterar</ion-button>
+    <ion-button color="danger">Remover</ion-button>
+  </section></center>
+
 </ion-content>
