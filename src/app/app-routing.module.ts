@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'tela-ambiente',
     loadChildren: () => import('./pages/tela-ambiente/tela-ambiente.module').then( m => m.TelaAmbientePageModule)
+  },
+  {
+    path: 'tela-embarcados-listar',
+    loadChildren: () => import('./pages/tela-embarcados-listar/tela-embarcados-listar.module').then( m => m.TelaEmbarcadosListarPageModule)
   }
 ];
 

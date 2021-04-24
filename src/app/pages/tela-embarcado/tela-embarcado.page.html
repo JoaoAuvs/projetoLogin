@@ -14,7 +14,6 @@
     <ion-input type="text" required></ion-input>
   </ion-item>
 
-  
   <ion-item lines="full">
       <ion-label position="floating">Firmware:</ion-label>
       <ion-input type="text" required></ion-input>
@@ -59,6 +58,7 @@
     </ion-select>
   </ion-item>
 
+  <!--
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button color="primary" class="">
       <ion-icon name="add"></ion-icon>
@@ -74,6 +74,32 @@
         <ion-icon name="trash"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
-  </ion-fab>
+  </ion-fab>-->
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="schedule">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Schedule</ion-label>
+        <ion-badge>6</ion-badge>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="speakers">
+        <ion-icon name="person-circle"></ion-icon>
+        <ion-label>Wi-Fi</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="map">
+        <ion-icon name="map"></ion-icon>
+        <ion-label>Embarcados</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="map">
+        <ion-icon name="map"></ion-icon>
+        <ion-label>Controle</ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
 
 </ion-content>

@@ -10,17 +10,21 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
 
-  usuario:string='Nome do Usuário'
-  email:string='email@gmail.com'
+  isLoged: any = false;
+
+  usuario:string='João Alves Da Silva Neto'
 
   public appPages = [
     { title: 'Perfil', url: '/tela-perfil', icon: 'person-circle' },
     { title: 'Ambientes', url: '/tela-ambiente', icon: 'pricetag' },
-    { title: 'Embarcados', url: '/tela-embarcado', icon: 'hardware-chip' },
+    { title: 'Embarcados', url: '/tela-embarcados-listar', icon: 'hardware-chip' },
     { title: 'Logout', url: '/dashboard', icon: 'log-out' },
   ];
-  
-  /*public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];*/
+  public labels = [
+    {title: 'Localização', url:'', icon:'locate-outline'},
+    {title: 'Telefones', url: '', icon:'call-outline'},
+    {title: 'Suporte Técnico', url: '', icon:'construct-outline'},
+  ];
 
   constructor(
     private platform: Platform,
