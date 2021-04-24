@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -18,20 +19,24 @@ export class AppComponent {
     { title: 'Perfil', url: '/tela-perfil', icon: 'person-circle' },
     { title: 'Ambientes', url: '/tela-ambiente', icon: 'pricetag' },
     { title: 'Embarcados', url: '/tela-embarcados-listar', icon: 'hardware-chip' },
-    { title: 'Logout', url: '/dashboard', icon: 'log-out' },
   ];
   public labels = [
-    {title: 'Localização', url:'', icon:'locate-outline'},
-    {title: 'Telefones', url: '', icon:'call-outline'},
-    {title: 'Suporte Técnico', url: '', icon:'construct-outline'},
+    { title: 'Localização', url:'', icon:'locate-outline' },
+    { title: 'Telefones', url: '', icon:'call-outline' },
+    { title: 'Suporte Técnico', url: '', icon:'construct-outline' },
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private navCtr : NavController
   ) {
     this.initializeApp();
+  }
+
+  logout(){
+    this.navCtr.navigateForward('dashboard')
   }
 
   initializeApp() {
