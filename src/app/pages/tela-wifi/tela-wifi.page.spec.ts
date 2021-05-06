@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { LoginPage } from './login.page';
+import { TelaWifiPage } from './tela-wifi.page';
 
-describe('LoginPage', () => {
-  let component: LoginPage;
-  let fixture: ComponentFixture<LoginPage>;
+describe('TelaWifiPage', () => {
+  let component: TelaWifiPage;
+  let fixture: ComponentFixture<TelaWifiPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginPage ],
+      declarations: [ TelaWifiPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LoginPage);
+    fixture = TestBed.createComponent(TelaWifiPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

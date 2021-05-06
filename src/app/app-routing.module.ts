@@ -42,6 +42,22 @@ const routes: Routes = [
   {
     path: 'tela-embarcados-listar',
     loadChildren: () => import('./pages/tela-embarcados-listar/tela-embarcados-listar.module').then( m => m.TelaEmbarcadosListarPageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  {
+    path: 'tela-wifi',
+    loadChildren: () => import('./pages/tela-wifi/tela-wifi.module').then( m => m.TelaWifiPageModule)
+  },
+  {
+    path: 'tela-mqtt',
+    loadChildren: () => import('./pages/tela-mqtt/tela-mqtt.module').then( m => m.TelaMqttPageModule)
+  },
+  {
+    path: 'tela-controle',
+    loadChildren: () => import('./pages/tela-controle/tela-controle.module').then( m => m.TelaControlePageModule)
   }
 ];
 

@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { LoginPage } from './login.page';
+import { TelaMqttPage } from './tela-mqtt.page';
 
-describe('LoginPage', () => {
-  let component: LoginPage;
-  let fixture: ComponentFixture<LoginPage>;
+describe('TabMqttPage', () => {
+  let component: TelaMqttPage;
+  let fixture: ComponentFixture<TelaMqttPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginPage ],
+      declarations: [ TelaMqttPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LoginPage);
+    fixture = TestBed.createComponent(TelaMqttPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
