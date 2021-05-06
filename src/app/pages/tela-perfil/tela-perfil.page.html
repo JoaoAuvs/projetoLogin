@@ -10,27 +10,38 @@
 <ion-content>
 
   <ion-item lines="full">
-    <ion-label position="floating">Alterar Email:</ion-label>
+    <ion-label position="floating">Primeiro Nome</ion-label>
+    <ion-input type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Sobrenome:</ion-label>
+    <ion-input type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Email:</ion-label>
     <ion-input type="email" required></ion-input>
   </ion-item>
 
   <ion-item lines="full">
-    <ion-label position="floating">Alterar Senha:</ion-label>
+    <ion-label position="floating">Celular:</ion-label>
+    <ion-input type="int" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Senha:</ion-label>
     <ion-input type="password" required></ion-input>
   </ion-item>
 
-  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-    <ion-fab-button color="primary" class="">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button color="warning" routerLink="/reminder/create" routerDirection="forward" data-desc="ALTERAR">
-        <ion-icon name="sync"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button color="danger" routerLink="/reminder/create" routerDirection="forward" data-desc="DELETAR CONTA">
-        <ion-icon name="trash"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
+  <ion-item lines="full">
+    <ion-label position="floating">Confirmar Senha:</ion-label>
+    <ion-input type="password" required></ion-input>
+  </ion-item>
+
+  <br>
+  <ion-button type="submit" color="success" expand="block">SALVAR</ion-button>
+  <br>
+  <ion-button type="submit" color="danger" expand="block">CANCELAR</ion-button>
 
 </ion-content>
