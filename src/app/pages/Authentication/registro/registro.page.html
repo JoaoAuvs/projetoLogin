@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Cadastrar</ion-title>
+    <ion-title>Registrar</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -32,11 +32,16 @@
 
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="primary" expand="block">Inscrever</ion-button>
-
-        <ion-button [routerLink]="['/login']" type="submit" color="primary" expand="block">ENTRAR</ion-button>
+        <br>
+        <!-- BUTTON FAZER LOGIN -->
+        <ion-button [routerLink]="['/registro']" type="submit" color="primary" expand="block">CADASTRAR</ion-button><br>
+       
+        <span class="divider line one-line">
+          <ion-button [routerLink]="['/login']" expand="block" color="danger">ENTRAR</ion-button>
+        </span>
       </ion-col>
     </ion-row>
+    
   </form>
   </div>
 </ion-content>

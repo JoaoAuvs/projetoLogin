@@ -36,7 +36,7 @@ export class AppComponent {
   }
 
   logout(){
-    this.navCtr.navigateForward('dashboard')
+    this.navCtr.navigateForward('login')
   }
 
   initializeApp() {
