@@ -1,18 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-import { IonicModule } from '@ionic/angular';
-
 import { TelaAmbientePageRoutingModule } from './tela-ambiente-routing.module';
-
 import { TelaAmbientePage } from './tela-ambiente.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
+    SharedModule,
     TelaAmbientePageRoutingModule
   ],
   declarations: [TelaAmbientePage]

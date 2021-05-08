@@ -9,17 +9,21 @@
 
 <ion-content>
   <div id="container">
-  <form>
+  <form [formGroup]='authForm' (submit)='clickLogin()'>
     <!-- E-MAIL-->
     <ion-item lines="full">
       <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input type="email" formControlName='email'></ion-input>
+      <ion-note slot='end' *ngIf="email.dirty && email.hasError('requerid')">Required</ion-note>
+      <ion-note slot='end' *ngIf="email.dirty && email.hasError('email')">E-mail no formato Invalido</ion-note>
     </ion-item>
 
     <!-- SENHA -->
     <ion-item lines="full">
       <ion-label position="floating">Senha</ion-label>
-      <ion-input type="password" required></ion-input>
+      <ion-input type="password" formControlName='password'></ion-input>
+      <ion-note slot='end' *ngIf="password.dirty && password.hasError('requerid')">Required</ion-note>
+      <ion-note slot='end' *ngIf="password.dirty && password.hasError('minlength')">Mínimo 6 caracteres!</ion-note>
     </ion-item>
     <br>
     
@@ -27,7 +31,7 @@
       <ion-col>
 
         <!-- BUTTON FAZER LOGIN -->
-        <ion-button [routerLink]="['/home']" type="submit" color="primary" expand="block" >Entrar</ion-button><br>
+        <ion-button [disabled]='authForm.invalid' [routerLink]="['/home']" type="submit" color="primary" expand="block" >LOGIN</ion-button><br>
             
         <!-- BUTTON ESQUECEU A SENHA -->
         <center><a [routerLink]="['/recuperacao-de-senha']" class="small-text">Esqueceu a senha?</a></center>

@@ -1,18 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-import { IonicModule } from '@ionic/angular';
-
 import { TelaPerfilPageRoutingModule } from './tela-perfil-routing.module';
-
 import { TelaPerfilPage } from './tela-perfil.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
+    SharedModule,
     TelaPerfilPageRoutingModule
   ],
   declarations: [TelaPerfilPage]
