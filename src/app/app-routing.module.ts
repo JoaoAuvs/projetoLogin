@@ -38,23 +38,7 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
-  } /*,
-  {
-    path: 'tela-mqtt',
-    loadChildren: () => import('./pages/tela-mqtt/tela-mqtt.module').then( m => m.TelaMqttPageModule)
-  },
-  {
-    path: 'tela-wifi',
-    loadChildren: () => import('./pages/tela-wifi/tela-wifi.module').then( m => m.TelaWifiPageModule)
-  },
-  {
-    path: 'tela-embarcado',
-    loadChildren: () => import('./pages/tela-embarcado/tela-embarcado.module').then( m => m.TelaEmbarcadoPageModule)
-  },
-  {
-    path: 'tela-controle',
-    loadChildren: () => import('./pages/tela-controle/tela-controle.module').then( m => m.TelaControlePageModule)
-  }*/
+  }
 ];
 
 @NgModule({
