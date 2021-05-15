@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { AuthProviders } from 'src/app/core/services/auth.types';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +11,18 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class LoginPage implements OnInit {
 
   authForm: FormGroup
+  provider: AuthProviders
+
+  configs = {
+    isSignIn: true,
+    action:'Login',
+    actionChange: 'Conta Criada'
+  }
 
   constructor(
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private authService: AuthService
+    ) { }
 
   ngOnInit() {
     this.validateForm()
@@ -35,7 +46,23 @@ export class LoginPage implements OnInit {
     return <FormControl> this.authForm.get('password')
   }
 
-  clickLogin(){
-    console.log(this.authForm.value)
+  async clickLogin(provider:AuthProviders):Promise<null>{
+    try {
+      await this.authService.authenticate({
+        isSignIn:this.configs.isSignIn,
+        provider,
+        user:this.authForm.value
+      })
+    } catch (error) {
+      console.log(error)
+    }
+    return 
+  }
+
+  changeAuthAction():void{
+    this.configs.isSignIn=!this.configs.isSignIn;
+    const {isSignIn}=this.configs
+    this.configs.action=isSignIn ? 'Login':'SignUp';
+    this.configs.actionChange=isSignIn ? 'Criar Conta':'Conta Criada';
   }
 }

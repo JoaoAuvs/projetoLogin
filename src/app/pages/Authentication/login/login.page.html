@@ -9,7 +9,7 @@
 
 <ion-content>
   <div id="container">
-  <form [formGroup]='authForm' (submit)='clickLogin()'>
+  <form [formGroup]='authForm' (submit)='clickLogin(AuthProviders)'>
     <!-- E-MAIL-->
     <ion-item lines="full">
       <ion-label position="floating">Email</ion-label>
@@ -32,9 +32,12 @@
 
         <!-- BUTTON FAZER LOGIN -->
         <ion-button [disabled]='authForm.invalid' [routerLink]="['/home']" type="submit" color="primary" expand="block" >LOGIN</ion-button><br>
-            
-        <!-- BUTTON ESQUECEU A SENHA -->
-        <center><a [routerLink]="['/recuperacao-de-senha']" class="small-text">Esqueceu a senha?</a></center>
+        
+        <!-- ESQUECEU A SENHA -->
+        <div class="container bottom ion-text-center" [routerLink]="['/recuperacao-de-senha']" class="container bottom ion-text-center">
+          <a>Esqueceu a senha?</a>
+        </div>
+
 
         <span class="divider line one-line">Ainda não tem cadastro?</span><br>
 
