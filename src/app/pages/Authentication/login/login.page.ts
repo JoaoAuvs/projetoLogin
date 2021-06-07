@@ -11,7 +11,8 @@ import { AuthProviders } from 'src/app/core/services/auth.types';
 export class LoginPage implements OnInit {
 
   authForm: FormGroup
-  provider: AuthProviders
+  provider = AuthProviders
+  private nameControl=new FormControl('',[Validators.required,Validators.minLength(3)])
 
   configs = {
     isSignIn: true,
@@ -21,7 +22,8 @@ export class LoginPage implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+
     ) { }
 
   ngOnInit() {
@@ -46,6 +48,10 @@ export class LoginPage implements OnInit {
     return <FormControl> this.authForm.get('password')
   }
 
+  get name():FormControl{
+    return <FormControl> this.authForm.get('name')
+  }
+
   async clickLogin(provider:AuthProviders):Promise<null>{
     try {
       await this.authService.authenticate({
@@ -64,5 +70,6 @@ export class LoginPage implements OnInit {
     const {isSignIn}=this.configs
     this.configs.action=isSignIn ? 'Login':'SignUp';
     this.configs.actionChange=isSignIn ? 'Criar Conta':'Conta Criada';
+    !isSignIn ? this.authForm.addControl('name', this.nameControl): this.authForm.removeControl('name');
   }
 }

@@ -9,8 +9,20 @@
 
 <ion-content>
   <div id="container">
-  <form [formGroup]='authForm' (submit)='clickLogin(AuthProviders)'>
-    <!-- E-MAIL-->
+  <form [formGroup]='authForm' (submit)='clickLogin(provider.Email)'>
+    
+    <!-- SE ESTIVER LOGADO ACESSAR O CONTAINER -->
+    <ng-container *ngIf='!configs.isSignIn'>
+      <!-- NOME -->
+      <ion-item lines="full">
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input type="text" formControlName='name'></ion-input>
+        <ion-note slot='end' *ngIf="name.dirty && name.hasError('requerid')">Required</ion-note>
+        <ion-note slot='end' *ngIf="name.dirty && name.hasError('minlength')">Mínimo 3 caracteres!</ion-note>
+      </ion-item>
+    </ng-container>
+
+    <!-- E-MAIL -->
     <ion-item lines="full">
       <ion-label position="floating">Email</ion-label>
       <ion-input type="email" formControlName='email'></ion-input>
@@ -31,18 +43,22 @@
       <ion-col>
 
         <!-- BUTTON FAZER LOGIN -->
-        <ion-button [disabled]='authForm.invalid' [routerLink]="['/home']" type="submit" color="primary" expand="block" >LOGIN</ion-button><br>
+        <ion-button [disabled]='authForm.invalid' (click)="clickLogin(provider.Facebook)"  type="submit" color="primary" expand="block" >LOGIN</ion-button><br>
         
+        <!-- BUTTON FAZER LOGIN FACEBOOK -->
+        <ion-button (click)="clickLogin(provider.Facebook)" type="submit" color="primary" expand="block">
+          <ion-icon name="logo-facebook"></ion-icon>Login com Facebook
+        </ion-button><br>
+
         <!-- ESQUECEU A SENHA -->
-        <div class="container bottom ion-text-center" [routerLink]="['/recuperacao-de-senha']" class="container bottom ion-text-center">
+        <div class="container bottom ion-text-center" class="container bottom ion-text-center">
           <a>Esqueceu a senha?</a>
         </div>
-
 
         <span class="divider line one-line">Ainda não tem cadastro?</span><br>
 
         <!-- BUTTON FAZER CADASTRO -->
-        <ion-button [routerLink]="['/registro']" expand="block" color="danger">REGISTRAR</ion-button>
+        <ion-button (click)="changeAuthAction()" expand="block" color="danger">REGISTRAR</ion-button>
 
       </ion-col>
     </ion-row>

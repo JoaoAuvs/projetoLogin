@@ -12,10 +12,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/Authentication/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./pages/Authentication/registro/registro.module').then( m => m.RegistroPageModule)
-  },
-  {
     path: 'recuperacao-de-senha',
     loadChildren: () => import('./pages/Authentication/recuperacao-de-senha/recuperacao-de-senha.module').then( m => m.RecuperacaoDeSenhaPageModule)
   },
