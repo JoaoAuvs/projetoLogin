@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="auth-form">
   <div id="container">
   <form [formGroup]='authForm' (submit)='clickLogin(provider.Email)'>
     
@@ -39,37 +39,39 @@
       <ion-note slot='end' *ngIf="password.dirty && password.hasError('minlength')">Mínimo 6 caracteres!</ion-note>
     </ion-item>
     <br>
-    
-    <ion-row>
-      <ion-col>
+   
+      <ion-grid>
+        <ion-row>
+          <ion-col align-self-center>
 
-        <!-- SIGN UP-->
-        <div *ngIf='!configs.isSignIn'>
-          <!-- BUTTON FAZER CADASTRO -->
-          <ion-button (click)="changeAuthAction()" expand="block" color="danger">CADASTRAR</ion-button><br>
-        </div>
+            <!-- SIGN UP-->
+            <div *ngIf='!configs.isSignIn'>
+              <!-- BUTTON FAZER CADASTRO -->
+              <ion-button (click)="changeAuthAction()" expand="block" color="danger">CADASTRAR</ion-button><br>
+            </div>
 
-        <!-- BUTTON FAZER LOGIN E-MAIL -->
-        <ion-button [disabled]='authForm.invalid' (click)="clickLogin(provider.Email)"  type="submit" color="primary" expand="block" [hidden]='!configs.isSignIn' >LOGIN</ion-button><br>
-        
-        <!-- BUTTON FAZER LOGIN FACEBOOK -->
-        <ion-button (click)="clickLogin(provider.Facebook)" type="submit" color="primary" expand="block" [hidden]='!configs.isSignIn'>
-          <ion-icon name="logo-facebook"></ion-icon>
-            Login com Facebook
-        </ion-button><br>
+            <!-- BUTTON FAZER LOGIN FACEBOOK -->
+            <ion-button (click)="clickLogin(provider.Facebook)" type="submit" color="primary" expand="block" [hidden]='!configs.isSignIn'>
+              <ion-icon name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+                Login com Facebook
+            </ion-button><br>
 
-        <!-- ESQUECEU A SENHA -->
-        <div class="container bottom ion-text-center" [routerLink]="['/recuperacao-de-senha']" class="container bottom ion-text-center" [hidden]='!configs.isSignIn'>
-          <a>Esqueceu a senha?</a>
-        </div>
+            <!-- BUTTON LOGIN E-MAIL -->
+            <ion-button [disabled]='authForm.invalid' (click)="clickLogin(provider.Email)" type="submit" expand="block" color="primary" [hidden]='!configs.isSignIn' >Entrar com e-mail</ion-button><br>
 
-        <span class="divider line one-line" [hidden]='!configs.isSignIn' >Ainda não tem cadastro?</span><br>
+            <!-- ESQUECEU A SENHA -->
+            <div class="container bottom ion-text-center" [routerLink]="['/recuperacao-de-senha']" class="container bottom ion-text-center" [hidden]='!configs.isSignIn'>
+              <a>Esqueceu a senha?</a>
+            </div><br>
 
-        <!-- BUTTON FAZER CADASTRO -->
-        <ion-button [hidden]='!configs.isSignIn'  (click)="changeAuthAction()" expand="block" color="danger">REGISTRAR</ion-button>
+            <span class="divider line one-line" [hidden]='!configs.isSignIn' >Ainda não tem cadastro?</span>
 
-      </ion-col>
-    </ion-row>
+            <!-- BUTTON INSCREVA-SE -->
+            <ion-button [hidden]='!configs.isSignIn'  (click)="changeAuthAction()" expand="block" color="danger">INSCREVA-SE</ion-button>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 
   </form>
 </div>
