@@ -1,78 +1,79 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
+  <ion-toolbar color="primary">
     <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="auth-form">
-  <div id="container">
-  <form [formGroup]='authForm' (submit)='clickLogin(provider.Email)'>
-    
-    <!-- SE ESTIVER LOGADO ACESSA O CONTAINER -->
-    <ng-container *ngIf='!configs.isSignIn'>
-      <!-- NOME -->
-      <ion-item lines="full">
-        <ion-label position="floating">Nome</ion-label>
-        <ion-input type="text" formControlName='name'></ion-input>
-        <ion-note slot='end' *ngIf="name.dirty && name.hasError('requerid')">Required</ion-note>
-        <ion-note slot='end' *ngIf="name.dirty && name.hasError('minlength')">Mínimo 3 caracteres!</ion-note>
-      </ion-item>
+<ion-content>
+  <div>
+    <form [formGroup]='authForm' (submit)='clickLogin(provider.Email)'>
+      
+      <!-- INPUTS -->
+      <div class="input-group" lines="full">
+        <!-- SE ESTIVER LOGADO ACESSA O CONTAINER -->
+        <ng-container *ngIf='!configs.isSignIn'>
+          <!-- NOME -->
+          <ion-item >
+            <ion-label position="floating">Nome</ion-label>
+            <ion-input type="text" formControlName='name'></ion-input>
+            <ion-note slot='end' *ngIf="name.dirty && name.hasError('requerid')">Required</ion-note>
+            <ion-note slot='end' *ngIf="name.dirty && name.hasError('minlength')">Mínimo 3 caracteres!</ion-note>
+          </ion-item>
+        </ng-container>
 
-    </ng-container>
+        <!-- E-MAIL -->
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" formControlName='email'></ion-input>
+          <ion-note slot='end' *ngIf="email.dirty && email.hasError('requerid')">Required</ion-note>
+          <ion-note slot='end' *ngIf="email.dirty && email.hasError('email')">E-mail no formato Invalido</ion-note>
+        </ion-item>
 
-    <!-- E-MAIL -->
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" formControlName='email'></ion-input>
-      <ion-note slot='end' *ngIf="email.dirty && email.hasError('requerid')">Required</ion-note>
-      <ion-note slot='end' *ngIf="email.dirty && email.hasError('email')">E-mail no formato Invalido</ion-note>
-    </ion-item>
+        <!-- SENHA -->
+        <ion-item>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input type="password" formControlName='password'></ion-input>
+          <ion-note slot='end' *ngIf="password.dirty && password.hasError('requerid')">Required</ion-note>
+          <ion-note slot='end' *ngIf="password.dirty && password.hasError('minlength')">Mínimo 6 caracteres!</ion-note>
+        </ion-item>
+      </div>
 
-    <!-- SENHA -->
-    <ion-item lines="full">
-      <ion-label position="floating">Senha</ion-label>
-      <ion-input type="password" formControlName='password'></ion-input>
-      <ion-note slot='end' *ngIf="password.dirty && password.hasError('requerid')">Required</ion-note>
-      <ion-note slot='end' *ngIf="password.dirty && password.hasError('minlength')">Mínimo 6 caracteres!</ion-note>
-    </ion-item>
-    <br>
-   
-      <ion-grid>
-        <ion-row>
-          <ion-col align-self-center>
+        <ion-grid>
+          <ion-row>
+            <ion-col align-self-center>
 
-            <!-- SIGN UP-->
-            <div *ngIf='!configs.isSignIn'>
-              <!-- BUTTON FAZER CADASTRO -->
-              <ion-button (click)="changeAuthAction()" expand="block" color="danger">CADASTRAR</ion-button><br>
-            </div>
+              <!-- SIGN UP-->
+              <div *ngIf='!configs.isSignIn'>
 
-            <!-- BUTTON FAZER LOGIN FACEBOOK -->
-            <ion-button (click)="clickLogin(provider.Facebook)" type="submit" color="primary" expand="block" [hidden]='!configs.isSignIn'>
-              <ion-icon name="logo-facebook"></ion-icon>&nbsp;&nbsp;
-                Login com Facebook
-            </ion-button><br>
+                <!-- BUTTON CADASTRO -->
+                <ion-button (click)="changeAuthAction()" expand="block" color="danger">CADASTRAR</ion-button><br>
+              </div>
 
-            <!-- BUTTON LOGIN E-MAIL -->
-            <ion-button [disabled]='authForm.invalid' (click)="clickLogin(provider.Email)" type="submit" expand="block" color="primary" [hidden]='!configs.isSignIn' >Entrar com e-mail</ion-button><br>
+              <!-- BUTTON LOGIN E-MAIL -->
+              <ion-button [disabled]='authForm.invalid' (click)="clickLogin(provider.Email)" type="submit" expand="block" color="primary" [hidden]='!configs.isSignIn' >Entrar com e-mail</ion-button><br>
 
-            <!-- ESQUECEU A SENHA -->
-            <div class="container bottom ion-text-center" [routerLink]="['/recuperacao-de-senha']" class="container bottom ion-text-center" [hidden]='!configs.isSignIn'>
-              <a>Esqueceu a senha?</a>
-            </div><br>
+              <small>
+              <!-- ESQUECEU A SENHA -->
+              <div class="ion-text-center" [routerLink]="['/recuperacao-de-senha']" [hidden]='!configs.isSignIn'>Esqueceu seus dados de login?<br>
+                <a>Obtenha ajuda para entrar.</a>
+              </div></small><br>
 
-            <span class="divider line one-line" [hidden]='!configs.isSignIn' >Ainda não tem cadastro?</span>
+              <!-- BUTTON FAZER LOGIN FACEBOOK -->
+              <ion-button (click)="clickLogin(provider.Facebook)" font-size="small" type="submit" color="primary" expand="block" [hidden]='!configs.isSignIn'>
+                <ion-icon name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+                  Login com Facebook
+              </ion-button><br>
 
-            <!-- BUTTON INSCREVA-SE -->
-            <ion-button [hidden]='!configs.isSignIn'  (click)="changeAuthAction()" expand="block" color="danger">INSCREVA-SE</ion-button>
+              <!-- AINDA NÃO TEM CADASTRO -->
+              <div class="ion-text-center" [hidden]='!configs.isSignIn'>Não tem uma conta?</div><br>
 
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+              <!-- BUTTON INSCREVA-SE -->
+              <ion-button [hidden]='!configs.isSignIn'  (click)="changeAuthAction()" expand="block" color="danger">Cadastre-se</ion-button>
 
-  </form>
-</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        
+    </form>
+  </div>
 </ion-content>
