@@ -41,15 +41,15 @@ export class LoginPage implements OnInit {
   }
 
   get email():FormControl{
-    return <FormControl> this.authForm.get('email')
+    return <FormControl> this.authForm.get('email');
   }
 
   get password():FormControl{
-    return <FormControl> this.authForm.get('password')
+    return <FormControl> this.authForm.get('password');
   }
 
   get name():FormControl{
-    return <FormControl> this.authForm.get('name')
+    return <FormControl> this.authForm.get('name');
   }
 
   async clickLogin(provider:AuthProviders):Promise<null>{
@@ -67,7 +67,7 @@ export class LoginPage implements OnInit {
 
   changeAuthAction():void{
     this.configs.isSignIn=!this.configs.isSignIn;
-    const {isSignIn}=this.configs
+    const {isSignIn}=this.configs; 
     this.configs.action=isSignIn ? 'Login':'SignUp';
     this.configs.actionChange=isSignIn ? 'Criar Conta':'Conta Criada';
     !isSignIn ? this.authForm.addControl('name', this.nameControl): this.authForm.removeControl('name');

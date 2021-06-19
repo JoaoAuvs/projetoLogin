@@ -55,10 +55,10 @@
             <ion-col align-self-center>
 
               <!-- SIGN UP-->
-              <div *ngIf='!configs.isSignIn'>
+              <ng-container *ngIf='!configs.isSignIn'>
                 <!-- BUTTON CADASTRO -->
                 <ion-button (click)="changeAuthAction()" expand="block" color="danger">CADASTRAR</ion-button><br>
-              </div>
+              </ng-container>
 
               <!-- BUTTON FAZER LOGIN FACEBOOK -->
               <ion-button (click)="clickLogin(provider.Facebook)" font-size="small" type="submit" color="primary" expand="block" [hidden]='!configs.isSignIn'>
@@ -76,7 +76,7 @@
               </div></small><br>
 
               <!-- BUTTON INSCREVA-SE -->
-              <ion-button [hidden]='!configs.isSignIn'  (click)="changeAuthAction()" expand="block" color="danger">Cadastre-se</ion-button>
+              <ion-button [hidden]='!configs.isSignIn' (click)="changeAuthAction()" expand="block" color="danger">Cadastre-se</ion-button>
 
             </ion-col>
           </ion-row>
