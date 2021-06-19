@@ -1,19 +1,31 @@
 <ion-header>
   <ion-toolbar color="primary">
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div>
+
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-img style="height: 128px;" src="assets/images/login.png"></ion-img>
+      </ion-col>
+    </ion-row>
+
+    <BR>
+
     <form [formGroup]='authForm' (submit)='clickLogin(provider.Email)'>
       
       <!-- INPUTS -->
+
       <div class="input-group" lines="full">
-        <!-- SE ESTIVER LOGADO ACESSA O CONTAINER -->
+        <!-- NOME SE ESTIVER LOGADO ACESSA O CONTAINER -->
         <ng-container *ngIf='!configs.isSignIn'>
-          <!-- NOME -->
-          <ion-item >
+          <ion-item>
             <ion-label position="floating">Nome</ion-label>
             <ion-input type="text" formControlName='name'></ion-input>
             <ion-note slot='end' *ngIf="name.dirty && name.hasError('requerid')">Required</ion-note>
@@ -44,28 +56,24 @@
 
               <!-- SIGN UP-->
               <div *ngIf='!configs.isSignIn'>
-
                 <!-- BUTTON CADASTRO -->
                 <ion-button (click)="changeAuthAction()" expand="block" color="danger">CADASTRAR</ion-button><br>
               </div>
 
-              <!-- BUTTON LOGIN E-MAIL -->
-              <ion-button [disabled]='authForm.invalid' (click)="clickLogin(provider.Email)" type="submit" expand="block" color="primary" [hidden]='!configs.isSignIn' >Entrar com e-mail</ion-button><br>
-
-              <small>
-              <!-- ESQUECEU A SENHA -->
-              <div class="ion-text-center" [routerLink]="['/recuperacao-de-senha']" [hidden]='!configs.isSignIn'>Esqueceu seus dados de login?<br>
-                <a>Obtenha ajuda para entrar.</a>
-              </div></small><br>
-
               <!-- BUTTON FAZER LOGIN FACEBOOK -->
               <ion-button (click)="clickLogin(provider.Facebook)" font-size="small" type="submit" color="primary" expand="block" [hidden]='!configs.isSignIn'>
                 <ion-icon name="logo-facebook"></ion-icon>&nbsp;&nbsp;
-                  Login com Facebook
-              </ion-button><br>
+                  Entrar com Facebook
+              </ion-button>
 
-              <!-- AINDA NÃO TEM CADASTRO -->
-              <div class="ion-text-center" [hidden]='!configs.isSignIn'>Não tem uma conta?</div><br>
+              <!-- BUTTON LOGIN E-MAIL -->
+              <ion-button [disabled]='authForm.invalid' (click)="clickLogin(provider.Email)" type="submit" expand="block" color="primary" [hidden]='!configs.isSignIn'>Entrar</ion-button><br>
+
+              <!-- ESQUECEU A SENHA -->
+              <small>
+              <div class="ion-text-center" [routerLink]="['/recuperacao-de-senha']" [hidden]='!configs.isSignIn'>Esqueceu seus dados de login?<br>
+                <a>Obtenha ajuda para entrar.</a>
+              </div></small><br>
 
               <!-- BUTTON INSCREVA-SE -->
               <ion-button [hidden]='!configs.isSignIn'  (click)="changeAuthAction()" expand="block" color="danger">Cadastre-se</ion-button>
